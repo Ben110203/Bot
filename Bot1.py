@@ -10,6 +10,10 @@ from linebot.models import (
     MessageEvent, TextMessage, TextSendMessage,ImageSendMessage
 )
 
+import random
+
+replylist = ["剪刀","石頭","布"]
+
 app = Flask(__name__)
 
 # Replace by your channel secret and access token from Line Developers console -> Channel settings.
@@ -39,20 +43,35 @@ def callback():
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    # Replace the text by what you want to say
-    line_bot_api.reply_message(
-        event.reply_token,
-        ImageSendMessage( original_content_url='https://addons.cdn.mozilla.net/user-media/addon_icons/824/824288-64.png?modified=1516050890', preview_image_url='https://addons.cdn.mozilla.net/user-media/addon_icons/824/824288-64.png?modified=1516050890'))
-     #   TextSendMessage(text=event.message.text))
-def reply(text):
-    if text == "剪刀":
-        return "石頭"
-    elif text == "石頭":
-        return "布"
-    elif text == "布":
-        return "剪刀"
+    if event.message.text  in replylist:
+        if  event.message.text== "剪刀" or "石頭" or "布":
+            t = random.sample(replylist, 1)
+            line_bot_api.reply_message(
+                event.reply_token,
+                TextSendMessage(text=t))
+            if event.message.text == t:
+                line_bot_api.reply_message(
+                    event.reply_token,
+                    TextSendMessage(text="平手!"))
+            elif (event.message.text=="剪刀"and t == "石頭") or (event.message.text=="石頭"and t == "布") or (event.message.text=="剪刀"and t == "石頭"):
+                line_bot_api.reply_message(
+                    event.reply_token,
+                    TextSendMessage(text="你輸了！"))
+            else:
+                line_bot_api.reply_message(
+                    event.reply_token,
+                    TextSendMessage(text="你贏了！"))
+
     else:
-        return "Hello world"
+        if event.message.text in replylist:
+            line_bot_api.reply_message(
+                event.reply_token,
+                TextSendMessage(text="Hi"))
+
+def reply(text):
+
+
+def WinOrLose(text):
 
 if __name__ == "__main__":
     app.run()
