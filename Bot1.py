@@ -13,8 +13,8 @@ from linebot.models import (
 app = Flask(__name__)
 
 # Replace by your channel secret and access token from Line Developers console -> Channel settings.
-LINE_CHANNEL_SECRET = "r+r82dIkwmOVnI43ehvHJaQbjUQl21tNGcoruT7aP1HxJSmeP1QTTALK3mkKjc+pxxoL8u/VInK27Ju/glylBpQ5p+ezqQoaCF76Xah3PhUm139iyRFG1wouMgff+e5H96nNfTQK0hU8CY31tq30/wdB04t89/1O/w1cDnyilFU="
-LINE_CHANNEL_ACCESS_TOKEN = '519c10e98f832890d3ce45a28d42a37f'
+LINE_CHANNEL_SECRET = '519c10e98f832890d3ce45a28d42a37f'
+LINE_CHANNEL_ACCESS_TOKEN = 'MHhWtzI3aLwI6ngy/8UhHDVDSHd1NZz27VgL2xMKbSxZSg5Z+dM3+bw6N/4da1n3xxoL8u/VInK27Ju/glylBpQ5p+ezqQoaCF76Xah3PhXrYJrYX9m8YyfkfqYaoifPriu8tpHWU8tdw5uBxjztcQdB04t89/1O/w1cDnyilFU='
 line_bot_api = LineBotApi(LINE_CHANNEL_ACCESS_TOKEN)
 handler = WebhookHandler(LINE_CHANNEL_SECRET)
 
@@ -42,8 +42,8 @@ def handle_message(event):
     # Replace the text by what you want to say
     line_bot_api.reply_message(
         event.reply_token,
-        ImageSendMessage( original_content_url='https://addons.cdn.mozilla.net/user-media/addon_icons/824/824288-64.png?modified=1516050890', preview_image_url='https://addons.cdn.mozilla.net/user-media/addon_icons/824/824288-64.png?modified=1516050890'))
-     #   TextSendMessage(text=event.message.text))
+  #      ImageSendMessage( original_content_url='https://addons.cdn.mozilla.net/user-media/addon_icons/824/824288-64.png?modified=1516050890', preview_image_url='https://addons.cdn.mozilla.net/user-media/addon_icons/824/824288-64.png?modified=1516050890'))
+        TextSendMessage(text=event.message.text))
 def reply(text):
     if text == "剪刀":
         return "石頭"
