@@ -14,7 +14,7 @@ app = Flask(__name__)
 
 # Replace by your channel secret and access token from Line Developers console -> Channel settings.
 LINE_CHANNEL_SECRET = '519c10e98f832890d3ce45a28d42a37f'
-LINE_CHANNEL_ACCESS_TOKEN = 'MHhWtzI3aLwI6ngy/8UhHDVDSHd1NZz27VgL2xMKbSxZSg5Z+dM3+bw6N/4da1n3xxoL8u/VInK27Ju/glylBpQ5p+ezqQoaCF76Xah3PhXrYJrYX9m8YyfkfqYaoifPriu8tpHWU8tdw5uBxjztcQdB04t89/1O/w1cDnyilFU='
+LINE_CHANNEL_ACCESS_TOKEN = 'aiL6gJ0FSxqm/EdwDPKA9n9BmTTWEaJbaKqUjayZaOm3nYwEwBCXECsTKEQQGTKLxxoL8u/VInK27Ju/glylBpQ5p+ezqQoaCF76Xah3PhWa+TmTUvbOt4VxvMr+9hC+PPzApEnRufogOPdVX+rfdQdB04t89/1O/w1cDnyilFU='
 line_bot_api = LineBotApi(LINE_CHANNEL_ACCESS_TOKEN)
 handler = WebhookHandler(LINE_CHANNEL_SECRET)
 
