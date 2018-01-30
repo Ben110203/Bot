@@ -13,8 +13,8 @@ from linebot.models import (
 app = Flask(__name__)
 
 # Replace by your channel secret and access token from Line Developers console -> Channel settings.
-LINE_CHANNEL_SECRET = '75ce6e8ea5e559381fa9830575592c74'
-LINE_CHANNEL_ACCESS_TOKEN = 'znDynalgVQMv77Ag4Hz0ULgU8GxgkNjXfEPHJIWCve7RkVakYMCbauBZAAoNiGZi5wXZ1t75fgmeUSLB5GiINb9a+/uB82bnB78GhHxHct382fsmYBXkr1bpQ8G/Jc47eq92MH+41/8seuveiIoMsgdB04t89/1O/w1cDnyilFU='
+LINE_CHANNEL_SECRET = 'd7cd6ac3a091291e21bd679b8bda9d54'
+LINE_CHANNEL_ACCESS_TOKEN = 'nYJAiZzHOa7CVZoDQ7SNP5+iCWWS4v6fqEf3yDsemK6MVMYKs6/Kbe3RKIW1ExCmxxoL8u/VInK27Ju/glylBpQ5p+ezqQoaCF76Xah3PhXK3gy6VkHlmSGwM5YPeMVPizZuNO3sdhxR5Aoytpo/vQdB04t89/1O/w1cDnyilFU='
 line_bot_api = LineBotApi(LINE_CHANNEL_ACCESS_TOKEN)
 handler = WebhookHandler(LINE_CHANNEL_SECRET)
 
