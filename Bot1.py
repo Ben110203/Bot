@@ -43,30 +43,10 @@ def callback():
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    if event.message.text  in replylist:
-        if  event.message.text== "剪刀" or "石頭" or "布":
-            t = random.sample(replylist, 1)
-            line_bot_api.reply_message(
-                event.reply_token,
-                TextSendMessage(text=t))
-            if event.message.text == t:
-                line_bot_api.reply_message(
-                    event.reply_token,
-                    TextSendMessage(text="平手!"))
-            elif (event.message.text=="剪刀"and t == "石頭") or (event.message.text=="石頭"and t == "布") or (event.message.text=="剪刀"and t == "石頭"):
-                line_bot_api.reply_message(
-                    event.reply_token,
-                    TextSendMessage(text="你輸了！"))
-            else:
-                line_bot_api.reply_message(
-                    event.reply_token,
-                    TextSendMessage(text="你贏了！"))
+    line_bot_api.reply_message(
+        event.reply_token,
+        TextSendMessage(text="你輸了！"))
 
-    else:
-        if event.message.text in replylist:
-            line_bot_api.reply_message(
-                event.reply_token,
-                TextSendMessage(text="Hi"))
 
 def reply(text):
 
